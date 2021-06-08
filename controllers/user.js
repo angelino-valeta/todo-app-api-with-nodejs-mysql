@@ -68,8 +68,8 @@ exports.createUser = (req, res) => {
   const rules = {
     name: 'required|min:6|max:20',
     email: 'required|email',
-    status: 'boolean|in:active,inactive',
-    gender: 'required|in:Masculino,Feminino',  
+    status: 'required',
+    gender: 'required',  
   }
 
   const sanitizationRules = {
@@ -77,7 +77,6 @@ exports.createUser = (req, res) => {
     email: [
       sanitizations.normalizeEmail()
     ],
-    email: 'escape|trim',
     status: 'escape|trim',
     gender: 'escape|trim',
   }
@@ -113,9 +112,7 @@ exports.updateUser = (req, res) => {
 
   const rules = {
     name: 'min:6|max:20',
-    email: 'email',
-    status: 'in:active,inactive',
-    gender: 'in:Masculino,Feminino',  
+    email: 'email', 
   }
 
   const sanitizationRules = {
@@ -158,7 +155,7 @@ exports.setActiveStatusUser = (req, res) => {
   const { isActive } = req.body
 
   const rules = {
-    isActive: 'in:active,inactive' 
+    isActive: 'required' 
   }
 
   const sanitizationRules = {
