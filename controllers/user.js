@@ -112,10 +112,10 @@ exports.updateUser = (req, res) => {
   const data = req.body
 
   const rules = {
-    name: 'required|min:6|max:20',
-    email: 'required|email',
+    name: 'min:6|max:20',
+    email: 'email',
     status: 'in:active,inactive',
-    gender: 'required|in:Masculino,Feminino',  
+    gender: 'in:Masculino,Feminino',  
   }
 
   const sanitizationRules = {
