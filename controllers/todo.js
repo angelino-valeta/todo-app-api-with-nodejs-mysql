@@ -71,8 +71,8 @@ exports.createTodo = (req, res) => {
   }
 
   const sanitizationRules = {
-    task: 'trim|escape|strip_tags',
-    completed: 'escape|strip_tags',
+    task: 'trim|escape',
+    completed: 'escape|trim',
   }
 
   validate(data, rules, sanitizationRules)
@@ -110,8 +110,8 @@ exports.updateTodo = (req, res) => {
   }
 
   const sanitizationRules = {
-    task: 'trim|escape|strip_tags',
-    completed: 'escape|strip_tags',
+    task: 'trim|escape',
+    completed: 'escape|trim',
     
   }
 
@@ -147,7 +147,7 @@ exports.updateCompletedTodo = (req, res) => {
   }
 
   const sanitizationRules = {
-    completed: 'escape|strip_tags',
+    completed: 'escape|trim',
   }
 
   validate(completed, rules, sanitizationRules)

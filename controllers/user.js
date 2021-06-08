@@ -73,13 +73,13 @@ exports.createUser = (req, res) => {
   }
 
   const sanitizationRules = {
-    name: 'trim|escape|strip_tags',
+    name: 'trim|escape',
     email: [
       sanitizations.normalizeEmail()
     ],
-    email: 'escape|strip_tags',
-    status: 'escape|strip_tags',
-    gender: 'escape|strip_tags',
+    email: 'escape|trim',
+    status: 'escape|trim',
+    gender: 'escape|trim',
   }
   validate(data, rules, sanitizationRules)
     .then((value) => {
@@ -119,13 +119,13 @@ exports.updateUser = (req, res) => {
   }
 
   const sanitizationRules = {
-    name: 'trim|escape|strip_tags',
+    name: 'trim|escape',
     email: [
       sanitizations.normalizeEmail()
     ],
-    email: 'escape|strip_tags',
-    status: 'escape|strip_tags',
-    gender: 'escape|strip_tags',
+    email: 'escape|trim',
+    status: 'escape|trim',
+    gender: 'escape|trim',
   }
 
   validate(data, rules, sanitizationRules)
@@ -162,7 +162,7 @@ exports.setActiveStatusUser = (req, res) => {
   }
 
   const sanitizationRules = {
-    isActive: 'escape|strip_tags',
+    isActive: 'escape|trim',
   }
 
   validate(isActive, rules, sanitizationRules)
